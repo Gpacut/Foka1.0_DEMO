@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+<body>
+
+
+
+    <span layout:fragment="pageTitle"> - Prace do oceny </span>
+
+    <div layout:fragment="content">
+    	<div th:include="menuFragment" ></div>
+		<br/><Br/>
+		<table border="1" cellpadding="5">
+			<tr><th>Id</th><th>Tytul</th><th>Autor</th><th>Slowa kluczowe</th><th>Ocena</th><th>Usun</th><th>Oceń</th></tr>
+			<tr th:each="workToEvaluation: ${worksToEvaluation}">
+				<td><span th:text="${workToEvaluation.id}" /></td>
+				<td><span th:text="${workToEvaluation.title}" /></td>
+				<td><span th:text="${workToEvaluation.author}" /></td>
+				<td><span th:text="${workToEvaluation.keyWords}" /></td>
+				<td><span th:text="${workToEvaluation.grade}" /></td>
+		        <td>
+		            <form action="DeleteWorkToEvaluation" method="POST">
+		            	<input type="hidden" name="workToEvaluationId" th:value="${workToEvaluation.id}" />
+		                <button type="submit">X</button>
+		            </form>
+		        </td>
+		        <td>
+		            <form action="Evaluate" method="POST">
+		            	<input type="hidden" name="workToEvaluationId" th:value="${workToEvaluation.id}" />
+		            	<input type="hidden" name="workToEvaluationTitle" th:value="${workToEvaluation.title}" />
+		            	<input type="hidden" name="workToEvaluationAuthor" th:value="${workToEvaluation.author}" />
+		            	<input type="hidden" name="workToEvaluationKeyWords" th:value="${workToEvaluation.keyWords}" />
+		            	<input type="hidden" name="workToEvaluationGrade" th:value="${workToEvaluation.grade}" />
+		                <button type="submit">$$$</button>
+		            </form>
+		        </td>
+			</tr>
+		
+		
+		</table><br/><br/><br/>
+		
+		
+    </div>
+
+</body>
+</html>

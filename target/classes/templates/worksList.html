@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+<body>
+
+
+
+    <span layout:fragment="pageTitle"> - Prace zgloszone </span>
+
+    <div layout:fragment="content">
+    	<div th:include="menuFragment" ></div>
+		<br/><Br/>
+		<table border="1" cellpadding="5">
+			<tr><th>Id</th><th>Tytul</th><th>Autor</th><th>Slowa kluczowe</th><th>Usun</th><th>Dodaj do oceny</th><th>Edytuj</th></tr>
+			<tr th:each="work: ${works}">
+				<td><span th:text="${work.id}" /></td>
+				<td><span th:text="${work.title}" /></td>
+				<td><span th:text="${work.author}" /></td>
+				<td><span th:text="${work.keyWords}" /></td>
+		        <td>
+		            <form action="DeleteWork" method="POST">
+		            	<input type="hidden" name="workId" th:value="${work.id}" />
+		                <button type="submit">X</button>
+		            </form>
+		        </td>
+		        <td>
+		            <form action="AddToEvaluation" method="POST">
+		            	<input type="hidden" name="workToEvaluationTitle" th:value="${work.title}" />
+		            	<input type="hidden" name="workToEvaluationAuthor" th:value="${work.author}" />
+		            	<input type="hidden" name="workToEvaluationKeyWords" th:value="${work.keyWords}" />
+		                <input type="hidden" name="workToEvaluationGrade" value="0"/>
+		                <button type="submit">+</button>
+		            </form>
+		        </td>
+		        <td>
+		            <form action="Edit" method="POST">
+		            	<input type="hidden" name="workId" th:value="${work.id}" />
+		            	<input type="hidden" name="workTitle" th:value="${work.title}" />
+		            	<input type="hidden" name="workAuthor" th:value="${work.author}" />
+		            	<input type="hidden" name="workKeyWords" th:value="${work.keyWords}" />
+		            	
+		                <button type="submit">E</button>
+		            </form>
+		        </td>
+			</tr>
+		
+		
+		</table><br/><a href='AddWork'>dodaj pracę</a><br/><br/>
+		
+    </div>
+
+</body>
+</html>

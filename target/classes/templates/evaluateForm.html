@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+<body>
+
+    <div layout:fragment="content">
+    <div th:include="menuFragment" ></div>
+    	<br/><br/>
+	   			<form action="EditGrade" method="POST">
+					<table>
+						<tr><td>Tytul:</td><td th:text="${workToEvaluationTitle}" /></tr>
+						<tr><td>Autor:</td><td th:text="${workToEvaluationAuthor}" /></tr>
+						<tr><td>Slowa Kluczowe:</td><td th:text="${workToEvaluationKeyWords}" /></tr>
+						<tr><td>Ocena:</td><td><select class="form-control" name="workToEvaluationGrade" id="workToEvaluationGrade">
+											    <option value="0">0</option>
+											    <option value="1">1</option>
+											    <option value="2">2</option>
+											    <option value="3">3</option>
+											    <option value="4">4</option>
+											    <option value="5">5</option>
+											    </select></td></tr>
+						<input type="hidden" name="workToEvaluationId" th:value="${workToEvaluationId}" />
+		            	<input type="hidden" name="workToEvaluationTitle" th:value="${workToEvaluationTitle}" />
+		            	<input type="hidden" name="workToEvaluationAuthor" th:value="${workToEvaluationAuthor}" />
+		            	<input type="hidden" name="workToEvaluationKeyWords" th:value="${workToEvaluationKeyWords}" />
+					</table><br/><BR/>
+					<input type="submit" value="Oceń"/>
+				</form>
+    </div>
+
+</body>
+</html>
+
+

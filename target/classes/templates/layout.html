@@ -1,0 +1,42 @@
+<html style="text-align:center;" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Foka 1.0</title>
+
+</head>
+
+<body bgcolor="#ccffff">
+<div align="center"> 
+
+
+
+		<h1 style="background-color:DodgerBlue;">System Organizowania Konferencji</h1>
+		
+		
+		<div style="background-color:lightblue;"> <b style="font-size:30px;color:white;">ZAPRASZAMY</b></div>
+		<div style="background-color:lightblue;"> <ins style="font-size:25px;color:white;">najlepsza konferencja o fokach</ins> </div>
+		<img src="http://oceana.org/sites/default/files/styles/lightbox_full/public/shutterstock_343293677.jpg?itok=UGwzxXl4" alt="foka4ppo" width="260" height="145" />
+		<h5> Jesteś zalogowany jako: <span th:text="${session.userLogin}" /> </h5>
+		<h4 th:text="${message}" style='color:#c00' />
+		
+	
+	<br/> 
+	<table style="width:30%; BORDER: RGB(137,155,175) 1px solid;">
+		<tr style="margin: 8px; background-color: #20B2AA;">
+			<td align='center'>
+			
+				<div id="the-content" layout:fragment="content">
+					Static content - never visible 
+	   			</div>
+
+			</td>
+		</tr>
+	</table>
+</div>
+<br/>	<br/>	<br/>	<br/> <br/> <br/> <br/> <br/>
+<hr />
+Foka 1.0
+</body>
+</html>
